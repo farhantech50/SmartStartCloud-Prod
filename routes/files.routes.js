@@ -9,6 +9,7 @@ import {
 import {
   fileUpload,
   fileDownload,
+  fileDelete,
 } from "../controllers/firebaseFile.controller.js";
 
 const router = express.Router();
@@ -23,7 +24,7 @@ router.get("/fileDownload/:fileID", fileDownload);
 router.get("/list/singleFile/:orderID", listFilesByOrderID);
 
 // Route to delete a file by ID
-router.delete("/delete/:id", deleteFile);
+router.delete("/delete/:id", fileDelete);
 
 // Route to list all files
 router.get("/list", listFiles);
