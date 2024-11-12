@@ -80,6 +80,7 @@ export const fileDownload = async (req, res) => {
     // Stream the file content to the client
     firebaseResponse.data.pipe(res);
   } catch (error) {
+    console.log(error.message);
     res
       .status(500)
       .json({ message: "Error downloading file", error: error.message });
