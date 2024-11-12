@@ -1,0 +1,12 @@
+studentID,studentName,studentContact,studentUsername,studentPassword
+s010,Alpha,123456789,alpha_s010,pass@1234
+s011,Beta,123456781,beta_s011,pass@2345
+s012,Gamma,123456782,gamma_s012,pass@3456
+s013,Delta,123456783,delta_s013,pass@4567
+s014,Epsilon,123456784,epsilon_s014,pass@5678
+s015,Zeta,123456785,zeta_s015,pass@6789
+s016,Eta,123456786,eta_s016,pass@7890
+s017,Theta,123456787,theta_s017,pass@8901
+s018,Iota,123456788,iota_s018,pass@9012
+s019,Kappa,123456789,kappa_s019,pass@0123
+s020,Lambda,123456790,lambda_s020,pass@1230
