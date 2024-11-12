@@ -21,25 +21,6 @@ import path from "path";
 // Initialize express app
 const app = express();
 
-// Token checking middleware for restricted uploads
-// const verifyShareableToken = (req, res, next) => {
-//   const token = req.query.token || req.headers['x-access-token'];
-//   if (!token) {
-//     return res.status(403).send({ message: 'No token provided. Access denied.' });
-//   }
-
-//   // Verify the token (replace JWT_SECRET with your secret)
-//   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-//     if (err) {
-//       return res.status(401).send({ message: 'Invalid or expired token.' });
-//     }
-
-//     // Token is valid, continue to next middleware
-//     req.fileId = decoded.fileId; // Optionally pass the fileId
-//     next();
-//   });
-// };
-
 //To deploy Frontend and Backend in save Heroku App
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
