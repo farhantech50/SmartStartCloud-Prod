@@ -7,6 +7,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import axios from "axios";
 
 const storage = getStorage(app);
 
