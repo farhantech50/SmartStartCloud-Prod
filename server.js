@@ -75,12 +75,10 @@ const upload = multer({ storage });
 app.post("/fileUpload", upload.single("file"), fileUpload);
 app.get("/fileDownload", fileDownload);
 
-/*
 //To deploy Frontend and Backend in save Heroku App
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'Dashboard/build','index.html')); //To connect react app
-})
-*/
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Dashboard/build", "index.html")); //To connect react app
+});
 
 // Start the server
 app.listen(process.env.PORT, () => {
