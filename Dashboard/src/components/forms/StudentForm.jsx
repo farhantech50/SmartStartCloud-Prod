@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import {
     Box, Card, CardContent, CircularProgress, Typography, useTheme, Grid, Divider, Button, Modal, TextField, Snackbar, IconButton,
@@ -12,6 +13,8 @@ const StudentForm = ({open, setOpen, degreeID}) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const { sendStudent } = useSendStudentData()
+    const navigate = useNavigate(); 
+    
 
     const [formSaved, setFormSaved] = useState(false);
     const [formError, setFormError] = useState(false);
@@ -31,9 +34,7 @@ const StudentForm = ({open, setOpen, degreeID}) => {
         const newErrors = {};
         if (!newStudent.studentID) newErrors.studentID = 'Student ID is required';
         if (!newStudent.studentName) newErrors.studentName = 'Student Name is required';
-        // if (!newStudent.studentLogin) newErrors.studentLogin = 'User Name is required';
-        // if (!newStudent.studentPassword) newErrors.studentPassword = 'Password is required';
-        // if (!newStudent.studentContact) newErrors.studentContact = 'Phone Number is required';
+
         return newErrors;
     };
 
@@ -41,6 +42,8 @@ const StudentForm = ({open, setOpen, degreeID}) => {
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length === 0) {
             handleAddStudent();
+
+            navigate(0);
         } else {
             setErrors(validationErrors);
         }

@@ -124,13 +124,13 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
-              <Item 
+              {/* <Item 
                 title="Upload Assignnment"
                 to="/uploadPage"
                 icon={<CloudUploadIcon />}
                 selected={selected}
                 setSelected={setSelected}
-              />
+              /> */}
               <Item 
                 title="All Degrees"
                 to="/allDegrees"

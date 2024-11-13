@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
@@ -43,6 +44,8 @@ const DegreeForm = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  
+  const navigate = useNavigate(); 
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
@@ -113,7 +116,8 @@ const DegreeForm = () => {
       const response = await sendDegreeForm(data);
       console.log("Form Data:", data);
       // console.log('Response Data:', response);
-      window.location.reload();
+      navigate(0);
+      
       setFormSaved(true);
       setLoading(false);
     } catch (e) {

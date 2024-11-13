@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Container, Typography, Box, Card, CardContent, IconButton, TableContainer,
   Table, TableHead, TableCell, TableRow, TableBody, Grid, TextField, useTheme, Modal,
@@ -42,38 +42,7 @@ const FileUpload = ({ orderID: orderIDFromParent, setOpen, open }) => {
 
   const { control } = useForm({});
 
-  const dummyData = [
-    {
-      _id: "672fea726125fcfbf5798867",
-      fileName: "Farhan cv1.pdf",
-      fileType: "application/pdf",
-      category: "assignment",
-    },
-    {
-      _id: "672fea726125fcfbf5798867",
-      fileName: "Farhan cv2.pdf",
-      fileType: "application/pdf",
-      category: "payment",
-    },
-    {
-      _id: "672fea726125fcfbf5798867",
-      fileName: "Farhan cv3.pdf",
-      fileType: "application/pdf",
-      category: "payment",
-    },
-    {
-      _id: "672fea726125fcfbf5798867",
-      fileName: "Farhan cv4.pdf",
-      fileType: "application/pdf",
-      category: "grade",
-    },
-    {
-      _id: "672fea726125fcfbf5798867",
-      fileName: "Farhan cv5.pdf",
-      fileType: "application/pdf",
-      category: "assignment",
-    },
-  ];
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     if (fileList) {                  
@@ -128,7 +97,12 @@ const FileUpload = ({ orderID: orderIDFromParent, setOpen, open }) => {
         ...prevStatus,
         [file.name]: true,
       }));
-      window.location.reload();
+      // console.log("will navigate", location.pathname)
+      setTimeout(() => {
+        navigate(0);
+        console.log("navigated ");
+      }, 1);
+      console.log("navigated ")
     } catch (error) {
       console.log("Error submitting form: ", error.message);
     }
@@ -146,7 +120,7 @@ const FileUpload = ({ orderID: orderIDFromParent, setOpen, open }) => {
     try {
       const response = await deleteFiles(file._id)
       console.log(response.message);
-      window.location.reload();
+      navigate(0);
     } catch (error) {
       console.log(error);
       
